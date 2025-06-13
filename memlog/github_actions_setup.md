@@ -90,9 +90,19 @@ The workflow performs the following steps:
 ## Troubleshooting
 
 ### Common Issues
-1. **Workflow not triggering:** Ensure DOCX files are actually changed in the commit
-2. **Conversion errors:** Check that DOCX files are not corrupted
-3. **Permission errors:** Verify repository has Actions enabled
+1. **Push rejected - workflow scope error:** 
+   ```
+   ! [remote rejected] main -> main (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/convert-docx-to-markdown.yml` without `workflow` scope)
+   ```
+   **Solution:** Update your Personal Access Token to include the `workflow` scope:
+   - Go to GitHub Settings → Developer settings → Personal access tokens
+   - Edit your existing token or create a new one
+   - Ensure the `workflow` scope is checked
+   - Update your local Git credentials with the new token
+
+2. **Workflow not triggering:** Ensure DOCX files are actually changed in the commit
+3. **Conversion errors:** Check that DOCX files are not corrupted
+4. **Permission errors:** Verify repository has Actions enabled
 
 ### Monitoring
 - Check GitHub Actions tab for workflow execution logs

@@ -15,10 +15,23 @@ This repository now includes a GitHub Actions workflow that automatically conver
 4. **Auto-Commit:** Converted Markdown files are automatically committed back to the repository
 
 ## Next Steps
-1. Push these files to your EMSDdoc repository: `https://github.com/ZorroCheng-MC/EMSDdoc`
-2. Ensure GitHub Actions is enabled in your repository settings
-3. Test by adding a DOCX file and pushing changes
-4. Monitor the workflow in the "Actions" tab on GitHub
+1. **Fix Personal Access Token:** Your PAT needs the `workflow` scope to push GitHub Actions files:
+   - Go to GitHub Settings → Developer settings → Personal access tokens
+   - Edit your existing token or create a new one
+   - Ensure the `workflow` scope is checked
+   - Update your local Git credentials with the new token
+
+2. Push these files to your EMSDdoc repository: `https://github.com/ZorroCheng-MC/EMSDdoc`
+3. Ensure GitHub Actions is enabled in your repository settings
+4. Test by adding a DOCX file and pushing changes
+5. Monitor the workflow in the "Actions" tab on GitHub
+
+## Troubleshooting Push Error
+If you see this error:
+```
+! [remote rejected] main -> main (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/convert-docx-to-markdown.yml` without `workflow` scope)
+```
+Your Personal Access Token needs the `workflow` scope to create GitHub Actions files.
 
 ## Manual Trigger
 You can also manually run the conversion workflow:
